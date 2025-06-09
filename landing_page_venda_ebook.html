@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Pages que Vendem: Do Zero ao Profissional - E-book Completo</title>
+    <meta name="description" content="Aprenda a criar landing pages profissionais que vendem sem gastar fortunas. Guia completo para empreendedores digitais.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #0f0f23;
+            overflow-x: hidden;
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Partículas de fundo */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(120, 198, 121, 0.3) 0%, transparent 50%);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff6b6b, #ffa500, #4ecdc4, #45b7d1);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-text h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-text .highlight {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-image {
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .ebook-cover {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        .ebook-cover:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        /* CTA Principal */
+        .cta-primary {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+        
+        /* Seções */
+        .section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        /* Problemas */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .problem-card {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Benefícios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #27ae60;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Conteúdo do E-book */
+        .content-preview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .chapter-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .chapter-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffa500;
+            margin-bottom: 1rem;
+        }
+        
+        /* Preço */
+        .pricing-section {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .pricing-card {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .price-original {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-current {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffa500;
+            margin-bottom: 1rem;
+        }
+        
+        .price-installments {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        /* Garantia */
+        .guarantee {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            background: white;
+            margin: 1rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+        }
+        
+        /* Sobre a Autora */
+        .author-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .author-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .author-image {
+            text-align: center;
+        }
+        
+        .author-avatar {
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .credential-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* Urgência */
+        .urgency-bar {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .author-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* Elementos flutuantes */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-cta .cta-primary {
+            margin: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas de fundo -->
+    <div class="particles"></div>
+    
+    <!-- Barra de urgência -->
+    <div class="urgency-bar">
+        🔥 OFERTA LIMITADA: Economize mais de R$ 1.600 criando sua landing page profissional!
+    </div>
+    
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <h3>Scale With Martech apresenta</h3>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Pare de Perder Vendas por Não Ter uma Landing Page Profissional</h1>
+                <h2>Aprenda a criar páginas que vendem sem gastar fortunas com desenvolvedores</h2>
+                
+                <div class="highlight">
+                    <h3>🎯 Se você tem um produto digital mas não sabe onde vender...</h3>
+                    <p><strong>Este e-book vai te ensinar a criar sua presença online completa em apenas 1 semana!</strong></p>
+                </div>
+                
+                <a href="#comprar" class="cta-primary">
+                    QUERO CRIAR MINHA LANDING PAGE AGORA!
+                </a>
+                
+                <p style="opacity: 0.8; margin-top: 1rem;">
+                    ✅ Sem conhecimento técnico<br>
+                    ✅ Sem gastar com desenvolvedores<br>
+                    ✅ Resultado profissional garantido
+                </p>
+            </div>
+            
+            <div class="hero-image">
+                <img src="capa_ebook_premium.png" alt="E-book Landing Pages que Vendem" class="ebook-cover">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Problemas -->
+    <section class="section">
+        <div class="container">
+            <h2>Você se Reconhece em Alguma Dessas Situações?</h2>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>😰 Produto Pronto, Vendas Zero</h3>
+                    <p>Você criou um produto incrível, mas está vendendo apenas pelo WhatsApp ou Instagram e as vendas não decolam.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>💸 Orçamentos Absurdos</h3>
+                    <p>Pediu orçamento para criar um site e recebeu propostas de R$ 2.000 a R$ 5.000 para algo "simples".</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>🤔 Não Sabe Por Onde Começar</h3>
+                    <p>Quer ter sua presença online profissional, mas não faz ideia de como registrar domínio, criar página ou configurar email.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>📱 Dependente de Plataformas</h3>
+                    <p>Está refém dos algoritmos das redes sociais e não tem controle sobre como apresenta seus produtos.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>😔 Falta de Credibilidade</h3>
+                    <p>Sente que não transmite profissionalismo suficiente para justificar o preço dos seus produtos.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>⏰ Tempo Perdido</h3>
+                    <p>Gasta horas tentando entender tutoriais confusos na internet sem conseguir um resultado profissional.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <h3 style="color: #e74c3c; font-size: 2rem;">Se você se identificou com pelo menos 2 dessas situações...</h3>
+                <p style="font-size: 1.3rem; margin: 1rem 0;"><strong>Este e-book foi feito especialmente para você!</strong></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solução -->
+    <section class="section">
+        <div class="container">
+            <h2>A Solução: Sua Landing Page Profissional em 1 Semana</h2>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">
+                    Imagine ter uma presença online completa e profissional que transmite credibilidade e vende seus produtos 24 horas por dia, 7 dias por semana...
+                </p>
+                
+                <div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+                    <h3>✨ E se eu te disser que você pode ter tudo isso:</h3>
+                    <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
+                        <li>✅ <strong>Domínio próprio profissional</strong> (seusite.com.br)</li>
+                        <li>✅ <strong>Landing page que converte</strong> criada com IA</li>
+                        <li>✅ <strong>Email profissional</strong> (contato@seusite.com.br)</li>
+                        <li>✅ <strong>Hospedagem gratuita</strong> para sempre</li>
+                        <li>✅ <strong>Conhecimento para otimizar</strong> e melhorar sempre</li>
+                    </ul>
+                    <p style="font-size: 1.2rem; margin-top: 1rem;">
+                        <strong>Gastando apenas R$ 40 por ano?</strong>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Credibilidade Instantânea</h3>
+                    <p>Um domínio próprio transmite profissionalismo e aumenta a confiança dos clientes em até 300%.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Economia Gigantesca</h3>
+                    <p>Economize R$ 1.600 a R$ 5.200 fazendo você mesmo vs. contratar terceiros.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Conversão Otimizada</h3>
+                    <p>Landing pages focadas convertem até 5x mais que posts em redes sociais.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔓</div>
+                    <h3>Independência Total</h3>
+                    <p>Não dependa mais de algoritmos ou mudanças de políticas de terceiros.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Controle Completo</h3>
+                    <p>Meça, teste e otimize tudo para maximizar suas vendas.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Resultado Rápido</h3>
+                    <p>Tenha sua presença online completa funcionando em apenas 1 semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Conteúdo do E-book -->
+    <section class="content-preview">
+        <div class="container">
+            <h2>O que Você Vai Aprender Neste E-book</h2>
+            
+            <div class="chapters-grid">
+                <div class="chapter-card">
+                    <div class="chapter-number">01</div>
+                    <h3>Fundamentos das Landing Pages</h3>
+                    <p>Entenda o que são, por que funcionam e os 7 elementos essenciais de uma página que vende.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">02</div>
+                    <h3>Criando com IA (Sem Programar)</h3>
+                    <p>Use o Manus para criar páginas profissionais em minutos. Template de prompt incluído!</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">03</div>
+                    <h3>Publicação Gratuita no GitHub</h3>
+                    <p>Hospede sua página gratuitamente para sempre, com tutorial passo a passo ilustrado.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">04</div>
+                    <h3>Domínio Próprio (.com.br)</h3>
+                    <p>Registre e configure seu domínio profissional no Registro.br por apenas R$ 40/ano.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">05</div>
+                    <h3>Email Profissional</h3>
+                    <p>Configure contato@seudominio.com.br gratuitamente com Zoho Mail.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">06</div>
+                    <h3>Onde Vender Seus Produtos</h3>
+                    <p>Análise completa: Hotmart, Udemy, Kiwify e outras plataformas. Custos e benefícios.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">07</div>
+                    <h3>Otimização de Conversões</h3>
+                    <p>Como melhorar continuamente suas vendas com testes e análises.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">🎁</div>
+                    <h3>Bônus Exclusivos</h3>
+                    <p>Templates, checklists, cronograma de 4 semanas e lista de ferramentas gratuitas.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                    <h3>📚 Mais de 80 páginas de conteúdo prático</h3>
+                    <p>Tudo explicado de forma simples, com exemplos reais e capturas de tela.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Preço -->
+    <section class="pricing-section" id="comprar">
+        <div class="container">
+            <h2>Investimento que se Paga em 1 Venda</h2>
+            
+            <div class="pricing-card">
+                <h3>E-book Completo + Bônus</h3>
+                
+                <div style="margin: 2rem 0;">
+                    <div class="price-original">De R$ 197,00</div>
+                    <div class="price-current">R$ 47,00</div>
+                    <div class="price-installments">ou 3x de R$ 15,67 sem juros</div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin: 2rem 0;">
+                    <h4>✨ Você recebe:</h4>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>📖 E-book completo (80+ páginas)</li>
+                        <li>🎯 Templates de prompts para IA</li>
+                        <li>📋 Checklists de implementação</li>
+                        <li>📅 Cronograma de 4 semanas</li>
+                        <li>🔗 Lista de ferramentas gratuitas</li>
+                        <li>💡 Exemplos práticos e casos reais</li>
+                    </ul>
+                </div>
+                
+                <a href="https://pay.hotmart.com/seulink" class="cta-primary" style="font-size: 1.5rem; padding: 1.5rem 3rem;">
+                    QUERO COMEÇAR AGORA POR R$ 47!
+                </a>
+                
+                <p style="opacity: 0.8; margin-top: 1rem;">
+                    🔒 Pagamento 100% seguro via Hotmart<br>
+                    📱 Acesso imediato após a compra
+                </p>
+            </div>
+            
+            <div style="margin: 3rem 0;">
+                <h3>💡 Pense assim:</h3>
+                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+                    <p style="font-size: 1.2rem;">
+                        <strong>R$ 47</strong> é menos que você gasta em um almoço para duas pessoas.<br><br>
+                        Mas este conhecimento pode te economizar <strong>mais de R$ 1.600</strong> e gerar vendas para o resto da vida.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Garantia -->
+    <section class="section">
+        <div class="container">
+            <div class="guarantee">
+                <h3>🛡️ Garantia de 7 Dias</h3>
+                <p style="font-size: 1.2rem;">
+                    Se por qualquer motivo você não ficar satisfeito com o conteúdo, devolvemos 100% do seu dinheiro em até 7 dias. Sem perguntas, sem burocracia.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ❓ Preciso saber programar para seguir o e-book?
+                </div>
+                <div class="faq-answer">
+                    <p>Não! O e-book foi criado especificamente para pessoas sem conhecimento técnico. Usamos IA para gerar o código e explicamos tudo passo a passo com capturas de tela.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    💰 Quanto vou gastar além do e-book?
+                </div>
+                <div class="faq-answer">
+                    <p>Apenas R$ 40/ano para o domínio .com.br. A hospedagem é gratuita no GitHub Pages e o email pode ser gratuito com Zoho Mail. Total: R$ 40/ano.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ⏰ Quanto tempo leva para implementar?
+                </div>
+                <div class="faq-answer">
+                    <p>Seguindo nosso cronograma, você terá sua presença online completa em 1 semana. Dedicando 1-2 horas por dia, é totalmente possível.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    🔄 Posso atualizar minha página depois?
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! O e-book ensina como fazer atualizações e melhorias. Você terá controle total sobre sua página.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    📱 Funciona para qualquer tipo de produto digital?
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! E-books, cursos online, consultorias, softwares, templates - qualquer produto digital pode ser vendido com as técnicas do e-book.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sobre a Autora -->
+    <section class="author-section">
+        <div class="container">
+            <h2>Sobre a Autora</h2>
+            
+            <div class="author-content">
+                <div class="author-image">
+                    <div class="author-avatar">👩‍💼</div>
+                    <h3>Jacqueline Wanderley</h3>
+                    <p>Especialista em Martech e Digital Analytics</p>
+                </div>
+                
+                <div class="author-info">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                        Quase 20 anos de experiência no mercado financeiro e 4 anos liderando projetos de infraestrutura digital. Já ajudou centenas de empresas a implementarem suas presenças online profissionais.
+                    </p>
+                    
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <h4>🎓 Formação</h4>
+                            <p>Administração (UFPE)<br>MBA Gestão (FGV)</p>
+                        </div>
+                        
+                        <div class="credential-item">
+                            <h4>🏆 Certificações</h4>
+                            <p>Google Analytics<br>Google Ads<br>Facebook Blueprint</p>
+                        </div>
+                        
+                        <div class="credential-item">
+                            <h4>💼 Experiência</h4>
+                            <p>20 anos mercado financeiro<br>4 anos em Martech</p>
+                        </div>
+                        
+                        <div class="credential-item">
+                            <h4>📈 Resultados</h4>
+                            <p>300% aumento ROI<br>150% mais conversões</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2>Não Deixe Mais Dinheiro na Mesa</h2>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">
+                    Cada dia que você adia ter uma presença online profissional é dinheiro que você deixa de ganhar.
+                </p>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+                    <h3>🚀 Imagine daqui a 1 semana:</h3>
+                    <ul style="text-align: left; max-width: 600px; margin: 1rem auto; font-size: 1.1rem;">
+                        <li>✅ Sua landing page profissional no ar</li>
+                        <li>✅ Domínio próprio transmitindo credibilidade</li>
+                        <li>✅ Email profissional para contatos</li>
+                        <li>✅ Vendas acontecendo 24/7</li>
+                        <li>✅ Independência total de plataformas</li>
+                    </ul>
+                </div>
+                
+                <a href="https://pay.hotmart.com/seulink" class="cta-primary" style="font-size: 1.5rem; padding: 1.5rem 3rem;">
+                    SIM! QUERO MINHA PRESENÇA ONLINE PROFISSIONAL
+                </a>
+                
+                <p style="opacity: 0.8; margin-top: 1rem;">
+                    Por apenas R$ 47,00 ou 3x de R$ 15,67<br>
+                    🔒 Pagamento seguro • 📱 Acesso imediato • 🛡️ Garantia de 7 dias
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Scale With Martech. Todos os direitos reservados.</p>
+            <p>contato@scalewithmartech.com.br</p>
+        </div>
+    </footer>
+    
+    <!-- CTA Flutuante -->
+    <div class="floating-cta">
+        <a href="#comprar" class="cta-primary">
+            COMPRAR AGORA!
+        </a>
+    </div>
+    
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isOpen = answer.style.display === 'block';
+            
+            // Fechar todas as outras
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.style.display = 'none';
+            });
+            
+            // Abrir/fechar a atual
+            answer.style.display = isOpen ? 'none' : 'block';
+        }
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animação de entrada dos elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos para animação
+        document.querySelectorAll('.problem-card, .benefit-card, .chapter-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
