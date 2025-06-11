@@ -669,59 +669,117 @@
             }
         }
         
-        // Form Handling - Versão Google Sheets
-        document.getElementById('emailForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const successMessage = document.getElementById('successMessage');
-            const form = this;
-            
-            // Disable button and show loading
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '📤 Enviando...';
-            
-            // Get form data
-            const formData = new FormData(form);
-            
-            // Send to Google Apps Script
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Importante para Google Apps Script
-            }).then(response => {
-                // Com no-cors, sempre assumimos sucesso se não houver erro
-                // Hide form and show success message
-                form.style.display = 'none';
-                successMessage.style.display = 'block';
-                
-                // Track conversion (Google Analytics)
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'lead_capture', {
-                        'event_category': 'engagement',
-                        'event_label': 'email_signup'
-                    });
-                }
-                
-                // Track Facebook Pixel
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead');
-                }
-                
-                // Optional: Auto-redirect after 10 seconds
-                setTimeout(() => {
-                    window.location.href = 'https://pay.hotmart.com/seulink';
-                }, 10000);
-                
-            }).catch(error => {
-                // Re-enable button and show error
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '📥 Baixar E-book Gratuito';
-                alert('Erro ao enviar. Tente novamente.');
-                console.error('Error:', error);
-            });
-        });
+    // Form Handling - Versão Google Sheets
+
+document.getElementById('emailForm').addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    
+
+    const submitBtn = document.getElementById('submitBtn');
+
+    const successMessage = document.getElementById('successMessage');
+
+    const form = this;
+
+    
+
+    // Disable button and show loading
+
+    submitBtn.disabled = true;
+
+    submitBtn.innerHTML = '📤 Enviando...';
+
+    
+
+    // Get form data
+
+    const formData = new FormData(form);
+
+    
+
+    // Add origem field
+
+    formData.append('origem', 'Landing Page E-book');
+
+    
+
+    // Send to Google Apps Script
+
+    fetch(form.action, {
+
+        method: 'POST',
+
+        body: formData,
+
+        mode: 'no-cors' // Importante para Google Apps Script
+
+    }).then(response => {
+
+        // Com no-cors, sempre assumimos sucesso se não houver erro
+
+        // Hide form and show success message
+
+        form.style.display = 'none';
+
+        successMessage.style.display = 'block';
+
         
+
+        // Track conversion (Google Analytics)
+
+        if (typeof gtag !== 'undefined') {
+
+            gtag('event', 'lead_capture', {
+
+                'event_category': 'engagement',
+
+                'event_label': 'email_signup'
+
+            });
+
+        }
+
+        
+
+        // Track Facebook Pixel
+
+        if (typeof fbq !== 'undefined') {
+
+            fbq('track', 'Lead');
+
+        }
+
+        
+
+        // Optional: Auto-redirect after 10 seconds
+
+        setTimeout(() => {
+
+            window.location.href = 'https://pay.hotmart.com/seulink';
+
+        }, 10000);
+
+        
+
+    }).catch(error => {
+
+        // Re-enable button and show error
+
+        submitBtn.disabled = false;
+
+        submitBtn.innerHTML = '📥 Baixar E-book Gratuito';
+
+        alert('Erro ao enviar. Tente novamente.');
+
+        console.error('Error:', error);
+
+    });
+
+});
+
+
         // Initialize particles when page loads
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
