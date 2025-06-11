@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale With Martech - Transforme seu Marketing Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1E88E5;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #1E88E5;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c2c2c 0%, #000000 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1E88E5;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo container */
+        .logo-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .brand-logo {
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .brand-logo {
+                max-width: 150px;
+            }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1E88E5;
+        }
+
+        .content-text p {
+            margin-bottom: 1.5rem;
+            color: #6b7280;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+
+        .feature-list li i {
+            color: #4CAF50;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-visual {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #1E88E5;
+        }
+
+        .content-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(30, 136, 229, 0.05) 10px,
+                rgba(30, 136, 229, 0.05) 20px
+            );
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .visual-icon {
+            font-size: 4rem;
+            color: #1E88E5;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Full Stack Martech Section */
+        .fullstack-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-top: 3px solid #1E88E5;
+        }
+
+        .fullstack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .fullstack-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(30, 136, 229, 0.1);
+            border-left: 4px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+
+        .fullstack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(30, 136, 229, 0.15);
+        }
+
+        .fullstack-card h4 {
+            color: #1E88E5;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .fullstack-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, #4CAF50, #FF9800);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+        /* E-books Section */
+        .ebooks-section {
+            background: #ffffff;
+        }
+
+        .ebooks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ebook-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #e5e7eb;
+        }
+
+        .ebook-card.available {
+            border-color: #4CAF50;
+        }
+
+        .ebook-card.coming-soon {
+            border-color: #FF9800;
+        }
+
+        .ebook-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1E88E5, #4CAF50, #FF9800);
+        }
+
+        .ebook-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .ebook-icon {
+            font-size: 3rem;
+            color: #1E88E5;
+            margin-bottom: 1.5rem;
+        }
+
+        .ebook-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .ebook-card p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .ebook-link {
+            display: inline-block;
+            background: #1E88E5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .ebook-link:hover {
+            background: #1565C0;
+            transform: translateY(-2px);
+        }
+
+        .ebook-link.coming-soon {
+            background: #FF9800;
+            cursor: not-allowed;
+        }
+
+        .ebook-link.coming-soon:hover {
+            background: #F57C00;
+            transform: none;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #FF9800;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.available {
+            background: #4CAF50;
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E88E5 0%, #4CAF50 50%, #FF9800 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .about-image i {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .about-text p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-link {
+            display: inline-block;
+            color: #1E88E5;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .about-link:hover {
+            border-bottom-color: #1E88E5;
+        }
+
+        .credentials {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .credential-item {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #1E88E5;
+        }
+
+        .credential-item h4 {
+            color: #1E88E5;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .credential-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #1E88E5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .ebook-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Scale With Martech</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#martech">Martech</a></li>
+                <li><a href="#fullstack">Full Stack</a></li>
+                <li><a href="#ebooks">E-books</a></li>
+                <li><a href="#sobre">Sobre Mim</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- Logo da marca -->
+            <div class="logo-container">
+                <img src="ScaleWithMartech-logo_branco.png" alt="Scale With Martech" class="brand-logo">
+            </div>
+            
+            <h1 class="fade-in-up">Transforme seu Marketing Digital com Martech</h1>
+            <p class="fade-in-up">Descubra como implementar um ecossistema completo de Martech de forma simples, econômica e eficiente para escalar suas vendas digitais.</p>
+            <a href="#fullstack" class="cta-button fade-in-up">Descobrir Full Stack Martech</a>
+        </div>
+    </section>
+
+    <!-- Martech Section -->
+    <section id="martech" class="section">
+        <div class="container">
+            <h2 class="section-title">O que é Martech?</h2>
+            
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3>Marketing + Tecnologia = Resultados Exponenciais</h3>
+                    <p>Martech (Marketing Technology) é a fusão estratégica entre marketing e tecnologia, englobando todas as ferramentas, plataformas e aplicações que revolucionam a forma como empresas se conectam com seus clientes.</p>
+                    <p>Esta poderosa combinação permite criar, executar, gerenciar e medir campanhas de marketing com precisão cirúrgica, transformando dados em insights acionáveis e resultados concretos.</p>
+                </div>
+                <div class="content-visual">
+                    <i class="fas fa-rocket visual-icon"></i>
+                    <h4>Crescimento Exponencial</h4>
+                    <p>De 150 ferramentas em 2011 para mais de 14.000 em 2024</p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-visual">
+                    <i class="fas fa-chart-line visual-icon"></i>
+                    <h4>ROI Mensurável</h4>
+                    <p>Decisões baseadas em dados, não em intuição</p>
+                </div>
+                <div class="content-text">
+                    <h3>Como Martech Escala suas Vendas</h3>
+                    <p>A tecnologia de marketing não é apenas uma tendência - é a nova realidade dos negócios digitais. Através da automação inteligente, personalização em massa e análise preditiva, o Martech transforma cada interação em uma oportunidade de conversão.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Automação de processos que libera sua equipe para estratégias</li>
+                        <li><i class="fas fa-check-circle"></i> Personalização em larga escala para cada cliente</li>
+                        <li><i class="fas fa-check-circle"></i> Análise de dados em tempo real para decisões rápidas</li>
+                        <li><i class="fas fa-check-circle"></i> Integração multicanal para experiências consistentes</li>
+                        <li><i class="fas fa-check-circle"></i> Previsão de comportamentos e necessidades dos clientes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Stack Martech Section -->
+    <section id="fullstack" class="section fullstack-section">
+        <div class="container">
+            <h2 class="section-title">Full Stack Martech DIY - Simples e Econômico</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 3rem; font-size: 1.1rem;">
+                Implemente um ecossistema completo de marketing digital sem complicações e com orçamento reduzido
+            </p>
+            
+            <div class="fullstack-grid">
+                <div class="fullstack-card fade-in-up">
+                    <h4><i class="fas fa-tools" style="color: #4CAF50; margin-right: 0.5rem;"></i> Ferramentas Gratuitas</h4>
+                    <p>Monte seu stack Martech usando ferramentas gratuitas como Google Analytics, Mailchimp, WordPress e Zapier. Comece sem investimento e escale conforme cresce.</p>
+                    <div class="price-highlight">Custo inicial: R$ 0</div>
+                </div>
+                
+                <div class="fullstack-card fade-in-up">
+                    <h4><i class="fas fa-puzzle-piece" style="color: #1E88E5; margin-right: 0.5rem;"></i> Integração Simples</h4>
+                    <p>Conecte suas ferramentas em poucos cliques. Nossa metodologia DIY torna a integração tão simples quanto montar um quebra-cabeças - cada peça tem seu lugar.</p>
+                </div>
+                
+                <div class="fullstack-card fade-in-up">
+                    <h4><i class="fas fa-rocket" style="color: #FF9800; margin-right: 0.5rem;"></i> Automação Inteligente</h4>
+                    <p>Configure fluxos de automação que funcionam 24/7. Desde captura de leads até nutrição e conversão - tudo automatizado e escalável.</p>
+                </div>
+                
+                <div class="fullstack-card fade-in-up">
+                    <h4><i class="fas fa-chart-bar" style="color: #4CAF50; margin-right: 0.5rem;"></i> Métricas que Importam</h4>
+                    <p>Acompanhe apenas os KPIs que realmente impactam suas vendas. Dashboards simples que qualquer empreendedor consegue entender e usar.</p>
+                </div>
+                
+                <div class="fullstack-card fade-in-up">
+                    <h4><i class="fas fa-mobile-alt" style="color: #1E88E5; margin-right: 0.5rem;"></i> Mobile-First</h4>
+                    <p>Todas as configurações pensadas para o comportamento mobile. Seus clientes estão no celular - seu Martech precisa estar também.</p>
+                </div>
+                
+                <div class="fullstack-card fade-in-up">
+                    <h4><i class="fas fa-graduation-cap" style="color: #FF9800; margin-right: 0.5rem;"></i> Passo a Passo Detalhado</h4>
+                    <p>Guias completos com prints de tela, vídeos explicativos e templates prontos. Você não precisa ser técnico para implementar.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3 style="color: #1E88E5; margin-bottom: 1rem;">Por que é Mais Fácil do que Parece?</h3>
+                <p style="color: #6b7280; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    O Full Stack Martech não é sobre usar todas as ferramentas do mercado. É sobre escolher as certas, configurá-las corretamente e fazê-las trabalhar juntas. Nossa abordagem DIY elimina a complexidade técnica e foca no que realmente gera resultados: <strong>mais leads, mais vendas, mais crescimento</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-books Section -->
+    <section id="ebooks" class="section ebooks-section">
+        <div class="container">
+            <h2 class="section-title">E-books Exclusivos</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 3rem; font-size: 1.1rem;">
+                Domine as estratégias e ferramentas que vão transformar seu marketing digital
+            </p>
+            
+            <div class="ebooks-grid">
+                <div class="ebook-card available fade-in-up">
+                    <div class="status-badge available">Disponível</div>
+                    <i class="fas fa-rocket ebook-icon"></i>
+                    <h3>Landing Pages que Vendem</h3>
+                    <p>Do zero ao profissional: aprenda a criar páginas de conversão que realmente convertem visitantes em clientes pagantes.</p>
+                    <a href="landingpages.html" class="ebook-link">Baixar E-book</a>
+                </div>
+                
+                <div class="ebook-card coming-soon fade-in-up">
+                    <div class="status-badge">Lançamento em breve</div>
+                    <i class="fas fa-graduation-cap ebook-icon"></i>
+                    <h3>Scale With Martech for Dummies</h3>
+                    <p>Guia completo para iniciantes: entenda os fundamentos do Martech e comece a escalar seu negócio hoje mesmo.</p>
+                    <a href="#" class="ebook-link coming-soon">Lançamento em breve</a>
+                </div>
+                
+                <div class="ebook-card coming-soon fade-in-up">
+                    <div class="status-badge">Lançamento em breve</div>
+                    <i class="fas fa-cogs ebook-icon"></i>
+                    <h3>Scale With Martech Advanced</h3>
+                    <p>Estratégias avançadas e integrações complexas para profissionais que querem dominar completamente o Martech.</p>
+                    <a href="#" class="ebook-link coming-soon">Lançamento em breve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="jwanderley.png" alt="Jacqueline Wanderley">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Jacqueline Wanderley</h3>
+                    <p class="title" style="color: #1E88E5; font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem;">Especialista em Martech e Digital Analytics</p>
+                    <p><strong>Quase 20 anos de experiência no mercado financeiro</strong> e 5 anos liderando projetos de infraestrutura de digital analytics e martech. Implementei do zero uma infraestrutura completa de martech em uma grande instituição financeira, estabelecendo as bases para uma operação de marketing orientada por dados.</p>
+                    <p>Minha missão é democratizar o conhecimento em Martech, tornando estratégias avançadas acessíveis para todos os níveis de experiência e orçamento, sempre com foco em soluções práticas e econômicas.</p>
+                    
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <h4>🎓 Formação Acadêmica</h4>
+                            <p>Graduação em Administração (UFRGS), Pós-graduação em Mercado de Capitais (UNIFIN) e Pós-graduação em Gestão Estratégica (Unisinos)</p>
+                        </div>
+                        <div class="credential-item">
+                            <h4>📜 Certificações</h4>
+                            <p>Especialização em Growth Hacking (Staage) e Certificação Google Analytics 4 (Google Academy)</p>
+                        </div>
+                        <div class="credential-item">
+                            <h4>💼 Expertise</h4>
+                            <p>Integração de GCP, Firebase, Google Analytics e arquiteturas de dados abrangentes</p>
+                        </div>
+                        <div class="credential-item">
+                            <h4>🎯 Resultados</h4>
+                            <p>Estratégias de hiperpersonalização e transformação digital completa de operações</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Scale With Martech</div>
+            <p>Transformando negócios através da tecnologia de marketing acessível e eficiente</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p>&copy; 2025 Scale With Martech. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and content sections
+        document.querySelectorAll('.ebook-card, .fullstack-card, .content-text, .content-visual').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
+
