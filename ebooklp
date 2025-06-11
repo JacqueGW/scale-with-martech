@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Pages que Vendem: Acesso Exclusivo - E-book Gratuito</title>
+    <meta name="description" content="Baixe gratuitamente o primeiro capítulo do e-book 'Landing Pages que Vendem' e aprenda a criar páginas que convertem!">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #E0E0E0;
+            background-color: #121212;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(66, 133, 244, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(66, 133, 244, 0.6); }
+        }
+        
+        /* Particles Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(66, 133, 244, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #121212 0%, #1E1E1E 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 3;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .logo {
+            width: 250px;
+            height: auto;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(66, 133, 244, 0.3));
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 15px 30px rgba(66, 133, 244, 0.4));
+        }
+        
+        .headline {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .subheadline {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ebook-preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+        
+        .ebook-cover {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .ebook-info {
+            max-width: 500px;
+            text-align: left;
+        }
+        
+        .ebook-info h3 {
+            font-size: 2rem;
+            color: #4285F4;
+            margin-bottom: 20px;
+        }
+        
+        .ebook-info ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .ebook-info li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .ebook-info li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #34A853;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Email Capture Form */
+        .email-capture {
+            background: linear-gradient(135deg, #1E1E1E 0%, #2A2A2A 100%);
+            border: 2px solid rgba(66, 133, 244, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        .email-capture h2 {
+            font-size: 2.2rem;
+            color: #4285F4;
+            margin-bottom: 15px;
+        }
+        
+        .email-capture p {
+            font-size: 1.1rem;
+            color: #B0B0B0;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #E0E0E0;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #4285F4;
+            background: rgba(66, 133, 244, 0.1);
+            box-shadow: 0 0 20px rgba(66, 133, 244, 0.3);
+        }
+        
+        .form-input::placeholder {
+            color: #888;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(66, 133, 244, 0.4);
+        }
+        
+        .cta-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            animation: none;
+        }
+        
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            text-align: center;
+            color: #B0B0B0;
+        }
+        
+        .trust-item .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #4285F4;
+            display: block;
+        }
+        
+        .trust-item .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4285F4;
+            margin-bottom: 50px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: #4285F4;
+            box-shadow: 0 15px 35px rgba(66, 133, 244, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            color: #4285F4;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card p {
+            color: #B0B0B0;
+            line-height: 1.6;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .social-proof h3 {
+            font-size: 1.5rem;
+            color: #34A853;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #34A853;
+            margin: 20px auto;
+            max-width: 600px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #4285F4;
+        }
+        
+        /* Privacy Notice */
+        .privacy-notice {
+            font-size: 0.9rem;
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        
+        .privacy-notice a {
+            color: #4285F4;
+            text-decoration: none;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #34A853 0%, #4285F4 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .success-message h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .success-message p {
+            margin-bottom: 20px;
+        }
+        
+        .success-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .success-button:hover {
+            background: white;
+            color: #34A853;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                width: 200px;
+            }
+            
+            .headline {
+                font-size: 2.5rem;
+            }
+            
+            .subheadline {
+                font-size: 1.2rem;
+            }
+            
+            .ebook-preview {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .ebook-cover {
+                width: 250px;
+            }
+            
+            .ebook-info {
+                text-align: center;
+            }
+            
+            .email-capture {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            .trust-indicators {
+                gap: 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 180px;
+            }
+            
+            .headline {
+                font-size: 2rem;
+            }
+            
+            .email-capture h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 18px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="logo_preto.png" alt="Scale With Martech" class="logo">
+                
+                <h1 class="headline">Acesso Exclusivo ao E-book</h1>
+                <p class="subheadline">
+                    Baixe gratuitamente o primeiro capítulo de "Landing Pages que Vendem" e descubra como criar páginas que convertem visitantes em clientes
+                </p>
+                
+                <div class="ebook-preview">
+                    <img src="ebook_cover_martech3.png" alt="Capa do E-book" class="ebook-cover">
+                    
+                    <div class="ebook-info">
+                        <h3>O que você vai aprender:</h3>
+                        <ul>
+                            <li>Como criar landing pages profissionais sem conhecimento técnico</li>
+                            <li>Configurar domínio próprio por apenas R$ 40/ano</li>
+                            <li>Publicar e hospedar gratuitamente sua página</li>
+                            <li>Otimizar para conversões e vendas</li>
+                            <li>Economizar R$ 5.600+ em desenvolvimento</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Email Capture Form -->
+                <div class="email-capture">
+                    <h2>🎁 Download Gratuito</h2>
+                    <p>Insira seu melhor email e receba o primeiro capítulo agora mesmo!</p>
+                    
+                    <form id="emailForm" action="https://script.google.com/macros/s/AKfycby5b35HyIOrAyDB44ATfdrr75m2XfCVeJmvdllkb_5WxxUj1SmcaSU8BbkRkn4QnOCgKg/exec" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-input" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-input" placeholder="Seu melhor email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-input" placeholder="WhatsApp (opcional)">
+                        </div>
+                        
+                        <!-- Hidden fields for tracking -->
+                        <input type="hidden" name="origem" value="Landing Page E-book">
+                        
+                        <button type="submit" class="cta-button" id="submitBtn">
+                            📥 Baixar E-book Gratuito
+                        </button>
+                    </form>
+                    
+                    <div class="success-message" id="successMessage">
+                        <h3>🎉 Email confirmado com sucesso!</h3>
+                        <p>Verifique sua caixa de entrada. Em alguns minutos você receberá o primeiro capítulo do e-book.</p>
+                        <p><strong>Quer acesso completo ao e-book?</strong></p>
+                        <a href="https://pay.hotmart.com/seulink" class="success-button" target="_blank">
+                            🚀 Comprar E-book Completo
+                        </a>
+                    </div>
+                    
+                    <div class="privacy-notice">
+                        🔒 Seus dados estão seguros. Não enviamos spam.<br>
+                        <a href="#privacy">Política de Privacidade</a>
+                    </div>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <!-- <div class="trust-indicators">
+                    <div class="trust-item">
+                        <span class="number">2.847</span>
+                        <span class="label">Downloads</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="number">4.9★</span>
+                        <span class="label">Avaliação</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="number">100%</span>
+                        <span class="label">Gratuito</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </header>
+    
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Por que baixar este e-book?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">💰</span>
+                    <h3>Economize Milhares</h3>
+                    <p>Aprenda a criar landing pages profissionais por R$ 40/ano em vez de pagar R$ 5.600+ para terceiros.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">🚀</span>
+                    <h3>Resultados Rápidos</h3>
+                    <p>Tenha sua primeira landing page funcionando em 24 horas, mesmo sem conhecimento técnico.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎯</span>
+                    <h3>Método Testado</h3>
+                    <p>Estratégias validadas com sucesso.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔧</span>
+                    <h3>Passo a Passo</h3>
+                    <p>Instruções detalhadas com prints e exemplos práticos para você seguir sem dificuldades.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">📱</span>
+                    <h3>Mobile Otimizado</h3>
+                    <p>Aprenda a criar páginas que funcionam perfeitamente em celulares, tablets e computadores.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎁</span>
+                    <h3>Bônus Inclusos</h3>
+                    <p>Templates prontos, checklists e ferramentas gratuitas para acelerar sua implementação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h3>O que estão dizendo sobre o e-book:</h3>
+            
+            <div class="testimonial">
+                "Incrível! Em 2 dias já tinha minha landing page no ar e vendendo. Economizei mais de R$ 2.000 que ia gastar com desenvolvedor."
+                <div class="testimonial-author">- Maria Silva, Coach de Relacionamentos</div>
+            </div>
+            
+            <div class="testimonial">
+                "Finalmente entendi como funciona DNS e domínio próprio. O passo a passo é muito detalhado, qualquer pessoa consegue seguir."
+                <div class="testimonial-author">- João Santos, Consultor Financeiro</div>
+            </div>
+            
+            <div class="testimonial">
+                "Estava perdida no mundo digital. Este e-book me deu a confiança para criar minha presença online profissional."
+                <div class="testimonial-author">- Ana Costa, Nutricionista</div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Particles Animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+    // Form Handling - Versão Google Sheets
+
+document.getElementById('emailForm').addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    
+
+    const submitBtn = document.getElementById('submitBtn');
+
+    const successMessage = document.getElementById('successMessage');
+
+    const form = this;
+
+    
+
+    // Disable button and show loading
+
+    submitBtn.disabled = true;
+
+    submitBtn.innerHTML = '📤 Enviando...';
+
+    
+
+    // Get form data
+
+    const formData = new FormData(form);
+
+    
+
+    // Add origem field
+
+    formData.append('origem', 'Landing Page E-book');
+
+    
+
+    // Send to Google Apps Script
+
+    fetch(form.action, {
+
+        method: 'POST',
+
+        body: formData,
+
+        mode: 'no-cors' // Importante para Google Apps Script
+
+    }).then(response => {
+
+        // Com no-cors, sempre assumimos sucesso se não houver erro
+
+        // Hide form and show success message
+
+        form.style.display = 'none';
+
+        successMessage.style.display = 'block';
+
+        
+
+        // Track conversion (Google Analytics)
+
+        if (typeof gtag !== 'undefined') {
+
+            gtag('event', 'lead_capture', {
+
+                'event_category': 'engagement',
+
+                'event_label': 'email_signup'
+
+            });
+
+        }
+
+        
+
+        // Track Facebook Pixel
+
+        if (typeof fbq !== 'undefined') {
+
+            fbq('track', 'Lead');
+
+        }
+
+        
+
+        // Optional: Auto-redirect after 10 seconds
+
+        setTimeout(() => {
+
+            window.location.href = 'https://pay.hotmart.com/seulink';
+
+        }, 10000);
+
+        
+
+    }).catch(error => {
+
+        // Re-enable button and show error
+
+        submitBtn.disabled = false;
+
+        submitBtn.innerHTML = '📥 Baixar E-book Gratuito';
+
+        alert('Erro ao enviar. Tente novamente.');
+
+        console.error('Error:', error);
+
+    });
+
+});
+
+
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    
+    <!-- Google Analytics (substitua GA_MEASUREMENT_ID pelo seu ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Facebook Pixel (substitua PIXEL_ID pelo seu ID) -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+</body>
+</html>
