@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Pages que Vendem: Do Zero ao Profissional - E-book Completo</title>
+    <meta name="description" content="Tem um produto digital mas não sabe onde vender? Aprenda a criar landing pages profissionais que vendem sem gastar fortunas!">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(30, 136, 229, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(30, 136, 229, 0.6); }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: #EA4335;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: 600;
+            font-size: 14px;
+            animation: blink 2s infinite;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        /* Header */
+        header {
+            background: #2c2c2c;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(234, 67, 53, 0.9);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        header h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 75%, #EA4335 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ebook-mockup {
+            max-width: 400px;
+            margin: 40px auto;
+            filter: drop-shadow(0 25px 50px rgba(0,0,0,0.7));
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ebook-mockup img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .ebook-mockup:hover img {
+            transform: scale(1.05);
+        }
+
+        /* CTA Buttons */
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #1E88E5 0%, #4CAF50 100%);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(30, 136, 229, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: #333;
+            transform: translateY(-2px);
+        }
+        
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(30, 136, 229, 0.6);
+        }
+        
+        /* Sections */
+        section {
+            background: #ffffff;
+            margin: 40px 0;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #1f2937;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #1E88E5 0%, #4CAF50 100%);
+            border-radius: 2px;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: #f8fafc;
+            border-left: 5px solid #EA4335;
+        }
+        
+        .problem-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .problem-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(234, 67, 53, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(234, 67, 53, 0.1);
+        }
+        
+        .problem-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #EA4335 0%, #FBBC05 100%);
+        }
+        
+        .problem-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(234, 67, 53, 0.2);
+        }
+        
+        .problem-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .problem-item h3 {
+            color: #EA4335;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .problem-item p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            background: white;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.1);
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #4CAF50 0%, #1E88E5 100%);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .benefit-card h3 {
+            color: #4CAF50;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: #f8fafc;
+            border-left: 5px solid #1E88E5;
+        }
+        
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .chapter-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(30, 136, 229, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(30, 136, 229, 0.1);
+        }
+        
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #1E88E5 0%, #FBBC05 100%);
+        }
+        
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(30, 136, 229, 0.2);
+        }
+        
+        .chapter-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #1E88E5;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .chapter-card h3 {
+            color: #1E88E5;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .chapter-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Free Chapter Form */
+        .free-chapter-section {
+            background: linear-gradient(135deg, #1E88E5 0%, #4CAF50 100%);
+            color: white;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .free-chapter-section h2 {
+            color: white;
+        }
+
+        .free-chapter-section h2::after {
+            background: white;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #FBBC05;
+            background: white;
+            box-shadow: 0 0 20px rgba(251, 188, 5, 0.3);
+        }
+        
+        .form-input::placeholder {
+            color: #666;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .success-message h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .success-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .success-button:hover {
+            background: #388E3C;
+            transform: translateY(-2px);
+        }
+
+        .privacy-notice {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .privacy-notice a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            background: white;
+            text-align: center;
+            border: 2px solid #1E88E5;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .offer-timer {
+            background: #EA4335;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin: 20px 0;
+            font-weight: 600;
+            animation: pulse 2s ease-in-out infinite;
+            display: inline-block;
+        }
+        
+        .original-price {
+            font-size: 1.3em;
+            text-decoration: line-through;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 4em;
+            font-weight: 800;
+            color: #1E88E5;
+            margin: 25px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .price-installments {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #6b7280;
+        }
+        
+        .bonus-list {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(30, 136, 229, 0.2);
+        }
+        
+        .bonus-list h3 {
+            color: #1E88E5;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        
+        .bonus-list ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .bonus-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: #374151;
+        }
+        
+        .bonus-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .bonus-list li::before {
+            content: '🎨';
+            margin-right: 10px;
+        }
+
+        .bonus-list li:nth-child(2)::before { content: '📋'; }
+        .bonus-list li:nth-child(3)::before { content: '✍️'; }
+        .bonus-list li:nth-child(4)::before { content: '🛠️'; }
+        .bonus-list li:nth-child(5)::before { content: '♾️'; }
+        .bonus-list li:nth-child(6)::before { content: '🔄'; }
+
+        /* Imagine Section */
+        .imagine-section {
+            background: rgba(30, 136, 229, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(30, 136, 229, 0.3);
+        }
+
+        .imagine-section h3 {
+            color: #1E88E5;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .imagine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+
+        .imagine-item {
+            padding: 10px;
+            color: #374151;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: #f8fafc;
+        }
+
+        .faq-item {
+            background: white;
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faq-question {
+            background: #1E88E5;
+            color: white;
+            padding: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #1565C0;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 25px;
+            background: white;
+            display: none;
+            color: #6b7280;
+        }
+
+        /* Author Section */
+        .author-section {
+            background: white;
+        }
+
+        .author-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .author-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            border: 4px solid #1E88E5;
+        }
+
+        .author-info h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .author-info .title {
+            color: #1E88E5;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .author-info p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #1E88E5;
+        }
+
+        .credential-item h4 {
+            color: #1E88E5;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .credential-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .floating-cta .cta-primary {
+            animation: pulse 2s infinite;
+            font-size: 1rem;
+            padding: 15px 25px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .author-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 40px 20px;
+                margin: 20px 0;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .floating-cta {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .floating-cta .cta-primary {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            header {
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        🚀 OFERTA LIMITADA: E-book por apenas R$ 74,90 - Últimas horas!
+    </div>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Scale With Martech apresenta</div>
+                <h1>Landing Pages que Vendem</h1>
+                <p class="hero-subtitle">
+                    Pare de perder vendas por não ter uma presença online profissional. Aprenda a criar landing pages que convertem sem gastar com desenvolvedores!
+                </p>
+                
+                <div class="ebook-mockup">
+                    <img src="cover_ebook_lps_v0.png" alt="E-book Landing Pages que Vendem">
+                </div>
+                
+                <div class="cta-container">
+                    <button class="cta-secondary" onclick="scrollToFreeChapter()">
+                        📥 BAIXAR 1º CAPÍTULO GRÁTIS
+                    </button>
+                    <a href="#comprar" class="cta-primary">
+                        🚀 COMPRAR E-BOOK COMPLETO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section class="section problem-section">
+        <div class="container">
+            <h2>Você Tem um Produto Digital Incrível, Mas...</h2>
+            
+            <div class="problem-list">
+                <div class="problem-item fade-in-up">
+                    <span class="problem-icon">😰</span>
+                    <h3>Não sabe onde vender</h3>
+                    <p>Você criou um produto digital fantástico, mas não tem ideia de como colocá-lo no mercado de forma profissional.</p>
+                </div>
+                
+                <div class="problem-item fade-in-up">
+                    <span class="problem-icon">💸</span>
+                    <h3>Desenvolvedores custam caro</h3>
+                    <p>Contratar um desenvolvedor para criar sua presença online pode custar milhares de reais que você não tem.</p>
+                </div>
+                
+                <div class="problem-item fade-in-up">
+                    <span class="problem-icon">⏰</span>
+                    <h3>Tempo está passando</h3>
+                    <p>Cada dia que passa sem vender é dinheiro deixado na mesa. Você precisa de uma solução rápida e eficaz.</p>
+                </div>
+                
+                <div class="problem-item fade-in-up">
+                    <span class="problem-icon">🤷‍♀️</span>
+                    <h3>Falta de credibilidade</h3>
+                    <p>Sem uma presença online profissional, seus clientes não confiam o suficiente para comprar de você.</p>
+                </div>
+                
+                <div class="problem-item fade-in-up">
+                    <span class="problem-icon">📉</span>
+                    <h3>Vendas não decolam</h3>
+                    <p>Você até consegue algumas vendas, mas não tem a estrutura necessária para escalar seu negócio.</p>
+                </div>
+                
+                <div class="problem-item fade-in-up">
+                    <span class="problem-icon">🔧</span>
+                    <h3>Não sabe por onde começar</h3>
+                    <p>Existem tantas opções e ferramentas que você fica perdido sem saber qual caminho seguir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section solution-section">
+        <div class="container">
+            <h2>A Solução Está Aqui!</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 3rem; font-size: 1.1rem;">
+                Aprenda a criar landing pages profissionais que vendem, mesmo sem conhecimento técnico
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in-up">
+                    <span class="benefit-icon">🚀</span>
+                    <h3>Do Zero ao Profissional</h3>
+                    <p>Passo a passo completo para criar sua presença online profissional, mesmo sem conhecimento técnico.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <span class="benefit-icon">💰</span>
+                    <h3>Economia Garantida</h3>
+                    <p>Economize milhares de reais que gastaria com desenvolvedores e agências.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Resultados Rápidos</h3>
+                    <p>Sua landing page pode estar no ar em questão de horas, não semanas.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <span class="benefit-icon">🛡️</span>
+                    <h3>Credibilidade Instantânea</h3>
+                    <p>Transmita profissionalismo e confiança desde o primeiro contato.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <span class="benefit-icon">📈</span>
+                    <h3>Vendas Escaláveis</h3>
+                    <p>Estrutura preparada para crescer junto com seu negócio.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <span class="benefit-icon">🎓</span>
+                    <h3>Conhecimento Duradouro</h3>
+                    <p>Aprenda uma habilidade que vai usar para sempre em seus projetos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="section content-section">
+        <div class="container">
+            <h2>O que Você Vai Aprender</h2>
+            
+            <div class="chapters-grid">
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">01</span>
+                    <h3>Definições Técnicas Essenciais</h3>
+                    <p>Entenda os conceitos fundamentais: domínio próprio, DNS, GitHub Pages, HTML/CSS e design responsivo.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">02</span>
+                    <h3>Fundamentos das Landing Pages</h3>
+                    <p>Anatomia de uma landing page que vende, psicologia das conversões e elementos visuais que convertem.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">03</span>
+                    <h3>Criação com Inteligência Artificial</h3>
+                    <p>Como usar IA para criar páginas profissionais com prompts estruturados e refinamento contínuo.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">04</span>
+                    <h3>Publicação Gratuita da Página Web</h3>
+                    <p>Configuração completa do GitHub Pages, upload de arquivos e ativação do seu site gratuito.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">05</span>
+                    <h3>Configuração de Domínio Próprio</h3>
+                    <p>Passo a passo para registrar e configurar seu domínio .com.br com certificado SSL gratuito.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">06</span>
+                    <h3>Email Profissional</h3>
+                    <p>Configure seu email profissional com seu domínio próprio e configurações de segurança.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">07</span>
+                    <h3>HTML Básico para Empreendedores</h3>
+                    <p>Aprenda HTML essencial para fazer alterações básicas em sua página sem depender de terceiros.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">08</span>
+                    <h3>Plataformas de Venda</h3>
+                    <p>Comparativo completo das melhores plataformas para vender seus produtos digitais.</p>
+                </div>
+                
+                <div class="chapter-card fade-in-up">
+                    <span class="chapter-number">09</span>
+                    <h3>Otimização de Conversões</h3>
+                    <p>Técnicas avançadas para aumentar suas vendas e otimizar continuamente seus resultados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Chapter Section -->
+    <section id="free-chapter" class="section free-chapter-section">
+        <div class="container">
+            <h2>🎁 Baixe o Primeiro Capítulo Gratuitamente</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Insira seu melhor email e receba agora mesmo o primeiro capítulo do e-book "Landing Pages que Vendem"
+            </p>
+            
+            <div class="form-container">
+                <form id="emailForm" action="https://script.google.com/macros/s/AKfycby5b35HyIOrAyDB44ATfdrr75m2XfCVeJmvdllkb_5WxxUj1SmcaSU8BbkRkn4QnOCgKg/exec" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-input" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-input" placeholder="Seu melhor email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" class="form-input" placeholder="WhatsApp (opcional)">
+                    </div>
+                    
+                    <!-- Hidden fields for tracking -->
+                    <input type="hidden" name="origem" value="Landing Page E-book">
+                    
+                    <button type="submit" class="cta-primary" id="submitBtn">
+                        📥 Baixar Primeiro Capítulo Grátis
+                    </button>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    <h3>🎉 Email confirmado com sucesso!</h3>
+                    <p>Verifique sua caixa de entrada. Em alguns minutos você receberá o primeiro capítulo do e-book.</p>
+                    <p><strong>Quer acesso completo ao e-book?</strong></p>
+                    <a href="#comprar" class="success-button">
+                        🚀 Comprar E-book Completo
+                    </a>
+                </div>
+                
+                <div class="privacy-notice">
+                    🔒 Seus dados estão seguros. Não enviamos spam.<br>
+                    <a href="#privacy">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="section author-section">
+        <div class="container">
+            <h2>Sobre a Autora</h2>
+            
+            <div class="author-content">
+                <img src="jwanderley.png" alt="Jacqueline Wanderley" class="author-image">
+                <div class="author-info">
+                    <h3>Jacqueline Wanderley</h3>
+                    <p class="title">Especialista em Martech e Digital Analytics</p>
+                    <p>
+                        <strong>Quase 20 anos de experiência no mercado financeiro</strong> e 5 anos liderando projetos de 
+                        infraestrutura de digital analytics e martech. Jacqueline implementou do zero uma infraestrutura 
+                        completa de martech em uma grande instituição financeira, estabelecendo as bases para uma operação 
+                        de marketing orientada por dados.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="credentials">
+                <div class="credential-item">
+                    <h4>💼 Expertise</h4>
+                    <p>Integração de GCP, Firebase, Google Analytics e arquiteturas de dados abrangentes</p>
+                </div>
+                <div class="credential-item">
+                    <h4>🎯 Resultados</h4>
+                    <p>Estratégias de hiperpersonalização e transformação digital completa de operações</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="comprar" class="section pricing-section">
+        <div class="container">
+            <h2>Não Deixe Mais Dinheiro na Mesa</h2>
+            
+            <p style="font-size: 1.3em; margin-bottom: 30px; color: #6b7280;">
+                Cada dia que você adia ter uma presença online profissional é dinheiro que você deixa de ganhar.
+            </p>
+            
+            <div class="offer-timer">
+                🚀 Oferta de Lançamento - Por Tempo Limitado!
+            </div>
+            
+            <div class="original-price">De R$ 197,00</div>
+            <div class="current-price">R$ 74,90</div>
+            <div class="price-installments">ou 3x de R$ 24,97</div>
+            
+            <div class="bonus-list">
+                <h3>🎁 Bônus Exclusivos Inclusos:</h3>
+                <ul>
+                    <li>Templates prontos de landing pages</li>
+                    <li>Checklist de otimização para conversão</li>
+                    <li>Guia de copywriting para vendas</li>
+                    <li>Lista de ferramentas gratuitas recomendadas</li>
+                    <li>Acesso vitalício ao conteúdo</li>
+                    <li>Atualizações gratuitas</li>
+                </ul>
+            </div>
+            
+            <div class="imagine-section">
+                <h3>🚀 Imagine daqui a 1 semana:</h3>
+                <div class="imagine-grid">
+                    <div class="imagine-item">✅ Sua landing page profissional no ar</div>
+                    <div class="imagine-item">✅ Domínio próprio transmitindo credibilidade</div>
+                    <div class="imagine-item">✅ Email profissional para contatos</div>
+                    <div class="imagine-item">✅ Vendas acontecendo 24/7</div>
+                    <div class="imagine-item">✅ Independência total de plataformas</div>
+                </div>
+            </div>
+            
+            <a href="https://github.com/JacqueGW/scale-with-martech/edit/main/ebooklps.html" class="cta-primary">
+                Sim! Quero construir minha página de vendas agora!
+            </a>
+            
+            <p style="margin-top: 20px; color: #6b7280;">
+                🔒 Pagamento seguro • 📱 Acesso imediato • 🛡️ Garantia de 7 dias
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Preciso ter conhecimento técnico para seguir o e-book?
+                </div>
+                <div class="faq-answer">
+                    Não! O e-book foi criado especificamente para pessoas sem conhecimento técnico. Todos os passos são explicados de forma simples e visual.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Quanto tempo leva para criar minha landing page?
+                </div>
+                <div class="faq-answer">
+                    Seguindo o passo a passo, você pode ter sua landing page no ar em algumas horas. O tempo varia conforme sua dedicação e personalização desejada.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Preciso pagar mensalidades para manter minha página?
+                </div>
+                <div class="faq-answer">
+                    Não necessariamente. O e-book ensina opções gratuitas e pagas. Você pode começar sem custo e evoluir conforme seu negócio cresce.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    O e-book funciona para qualquer tipo de produto digital?
+                </div>
+                <div class="faq-answer">
+                    Sim! Os princípios e estratégias se aplicam a cursos online, e-books, consultoria, software, apps e qualquer produto digital.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Existe garantia?
+                </div>
+                <div class="faq-answer">
+                    Sim! Você tem 7 dias de garantia incondicional. Se não ficar satisfeito, devolvemos 100% do seu dinheiro.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Scale With Martech. Todos os direitos reservados.</p>
+            <p>contato@scalewithmartech.com.br</p>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="#comprar" class="cta-primary">
+            COMPRAR AGORA!
+        </a>
+    </div>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    question.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to free chapter function
+        function scrollToFreeChapter() {
+            document.getElementById('free-chapter').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Form submission
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const form = this;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            }, 2000);
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.problem-item, .benefit-card, .chapter-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
