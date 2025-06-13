@@ -1045,7 +1045,7 @@
                 <div class="chapter-card fade-in-up">
                     <span class="chapter-number">01</span>
                     <h3>Definições Técnicas Essenciais</h3>
-                    <p>Entenda os conceitos fundamentais: domínio próprio, DNS, GitHub Pages, HTML/CSS e design responsivo.</p>
+                    <p>Entenda os conceitos fundamentais: domínio próprio, DNS, HTML/CSS e design responsivo.</p>
                 </div>
                 
                 <div class="chapter-card fade-in-up">
@@ -1057,13 +1057,13 @@
                 <div class="chapter-card fade-in-up">
                     <span class="chapter-number">03</span>
                     <h3>Criação com Inteligência Artificial</h3>
-                    <p>Como usar IA para criar páginas profissionais com prompts estruturados e refinamento contínuo.</p>
+                    <p>Como usar IA para criar páginas profissionais com prompts estruturados para você usar.</p>
                 </div>
                 
                 <div class="chapter-card fade-in-up">
                     <span class="chapter-number">04</span>
                     <h3>Publicação Gratuita da Página Web</h3>
-                    <p>Configuração completa do GitHub Pages, upload de arquivos e ativação do seu site gratuito.</p>
+                    <p>Configuração completa, upload de arquivos e ativação do seu site gratuito.</p>
                 </div>
                 
                 <div class="chapter-card fade-in-up">
@@ -1090,11 +1090,11 @@
                     <p>Comparativo completo das melhores plataformas para vender seus produtos digitais.</p>
                 </div>
                 
-                <div class="chapter-card fade-in-up">
+               <!-- <div class="chapter-card fade-in-up">
                     <span class="chapter-number">09</span>
                     <h3>Otimização de Conversões</h3>
                     <p>Técnicas avançadas para aumentar suas vendas e otimizar continuamente seus resultados.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -1104,11 +1104,11 @@
         <div class="container">
             <h2>🎁 Baixe o Primeiro Capítulo Gratuitamente</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                Insira seu melhor email e receba agora mesmo o primeiro capítulo do e-book "Landing Pages que Vendem"
+                Insira seu email e receba agora mesmo o primeiro capítulo do e-book "Landing Pages que Vendem"
             </p>
             
             <div class="form-container">
-                <form id="emailForm" action="https://script.google.com/macros/s/AKfycby5b35HyIOrAyDB44ATfdrr75m2XfCVeJmvdllkb_5WxxUj1SmcaSU8BbkRkn4QnOCgKg/exec" method="POST">
+                <form id="emailForm" action="https://script.google.com/macros/s/AKfycbxyz7Gl5mNkiNnegWfjdlNGXSXArTz7fD1kl11f2LheknNag1eUXdHnKw7CExKSs64Edg/exec" method="POST">
                     <div class="form-group">
                         <input type="text" name="name" class="form-input" placeholder="Seu nome completo" required>
                     </div>
@@ -1338,24 +1338,62 @@
             });
         }
 
-        // Form submission
-        document.getElementById('emailForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const successMessage = document.getElementById('successMessage');
-            const form = this;
-            
-            // Disable button and show loading
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                form.style.display = 'none';
-                successMessage.style.display = 'block';
-            }, 2000);
-        });
+// Form Handling - Versão Google Sheets
+document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const form = this;
+    
+    // Disable button and show loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '📤 Enviando...';
+    
+    // Get form data
+    const formData = new FormData(form);
+    
+    // Add origem field
+    formData.append('origem', 'Landing Page E-book');
+    
+    // Send to Google Apps Script
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Importante para Google Apps Script
+    }).then(response => {
+        // Com no-cors, sempre assumimos sucesso se não houver erro
+        // Hide form and show success message
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Track conversion (Google Analytics)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'lead_capture', {
+                'event_category': 'engagement',
+                'event_label': 'email_signup'
+            });
+        }
+        
+        // Track Facebook Pixel
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead');
+        }
+        
+        // Optional: Auto-redirect after 10 seconds
+        setTimeout(() => {
+            window.location.href = 'https://pay.hotmart.com/seulink';
+        }, 10000);
+        
+    }).catch(error => {
+        // Re-enable button and show error
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '📥 Baixar E-book Gratuito';
+        alert('Erro ao enviar. Tente novamente.');
+        console.error('Error:', error);
+    });
+});
+
 
         // Fade in animation on scroll
         const observerOptions = {
