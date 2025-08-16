@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title"></title>
+    <meta name="description" id="page-description" content="">
+    <meta name="keywords" content="martech, marketing digital, tráfego pago, agências de marketing, estratégia de dados, otimização de ROI, tecnologia de marketing">
+    <meta name="author" content="Jacqueline Wanderley">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scalewithmartech.com/martech-ebook">
+    <meta property="og:title" id="og-title" content="">
+    <meta property="og:description" id="og-description" content="">
+    <meta property="og:image" content="https://scalewithmartech.com/images/martech-ebook-cover.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://scalewithmartech.com/martech-ebook">
+    <meta property="twitter:title" id="twitter-title" content="">
+    <meta property="twitter:description" id="twitter-description" content="">
+    <meta property="twitter:image" content="https://scalewithmartech.com/images/martech-ebook-cover.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #000000;
+            --primary-white: #ffffff;
+            --elegant-gray: #1a1a1a;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --accent-gold: #d4af37;
+            --accent-blue: #2c5aa0;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border-color: #e9ecef;
+            --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+            --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
+            --coupon-yellow: #FFD700; /* New color for coupon */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Unified font */
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--primary-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Blinking Promotional Header */
+        .promo-banner {
+            background: var(--coupon-yellow); /* Changed to yellow */
+            color: var(--primary-black); /* Changed to black text */
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 600;
+            font-size: 14px;
+            animation: blink 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent); /* Adjusted for black text */
+            animation: shine 3s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            25%, 75% { opacity: 0.7; }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Header with Logo and Language Selector */
+        .header {
+            background: var(--primary-black);
+            color: var(--primary-white);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-white);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo:hover {
+            color: var(--accent-gold);
+            transition: color 0.3s ease;
+        }
+
+        .language-flags {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .flag-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--primary-white); /* Changed for dark header */
+            font-weight: 500;
+        }
+
+        .flag-button:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .flag-button.active {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 18px;
+            border-radius: 3px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .flag-br {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjM2IiBmaWxsPSIjMDA5NzM5Ii8+CjxwYXRoIGQ9Ik0xMiAxOEwyIDI4SDIyTDEyIDE4WiIgZmlsbD0iI0ZGREYwMCIvPgo8cGF0aCBkPSJNMTIgMThMMiA4SDIyTDEyIDE4WiIgZmlsbD0iI0ZFREYwMCIvPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE4IiByPSI2IiBmaWxsPSIjMDAyNzc2Ii8+Cjwvc3ZnPgo=');
+        }
+
+        .flag-us {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjM2IiBmaWxsPSIjQjIyMjM0Ii8+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIzIiB5PSIzIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMyIgeT0iOSIgZmlsbD0id2hpdGUiLz4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjMiIHk9IjE1IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMyIgeT0iMjEiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIzIiB5PSIyNyIgZmlsbD0id2hpdGUiLz4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjMiIHk9IjMzIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB3aWR0aD0iMTAiIGhlaWdodD0iMTgiIGZpbGw9IiMzQzNDNkQiLz4KPC9zdmc+Cg==');
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        .hero h1 {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .ebook-preview {
+            max-width: 350px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .ebook-cover {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--elegant-gray) 100%);
+            border-radius: 15px;
+            box-shadow: var(--shadow-heavy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ebook-cover::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .ebook-cover::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .ebook-cover:hover {
+            transform: translateY(-10px) rotateY(5deg);
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--primary-black);
+            color: var(--primary-white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            margin: 30px 10px;
+            border: 2px solid var(--primary-black);
+        }
+
+        .cta-primary:hover {
+            background: var(--primary-white);
+            color: var(--primary-black);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .features-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .feature-item i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+        }
+
+        /* Problem Section */
+        .problems {
+            padding: 100px 0;
+            background: var(--primary-black); /* Inverted background */
+            color: var(--primary-white); /* Inverted text color */
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-white); /* Inverted text color */
+            margin-bottom: 70px;
+            letter-spacing: -1px;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .problem-card {
+            background: var(--elegant-gray); /* Inverted background */
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--dark-gray); /* Inverted border color */
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--accent-gold);
+        }
+
+        .problem-icon {
+            font-size: 2.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
+
+        .problem-card h3 {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-white); /* Inverted text color */
+            margin-bottom: 20px;
+        }
+
+        .problem-card p {
+            color: rgba(255,255,255,0.8); /* Inverted text color */
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 100px 0;
+            background: var(--primary-white); /* Inverted background */
+            color: var(--primary-black); /* Inverted text color */
+        }
+
+        .solution .section-title {
+            color: var(--primary-black); /* Inverted text color */
+        }
+
+        .solution-intro {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-secondary); /* Inverted text color */
+            line-height: 1.6;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: var(--light-gray); /* Inverted background */
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color); /* Inverted border color */
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background: var(--border-color); /* Inverted hover background */
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .benefit-icon {
+            font-size: 2.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-black); /* Inverted text color */
+            margin-bottom: 20px;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary); /* Inverted text color */
+            line-height: 1.7;
+        }
+
+        /* Content Section */
+        .content-preview {
+            padding: 100px 0;
+            background: var(--primary-black); /* Inverted background */
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .content-item {
+            background: var(--elegant-gray); /* Inverted background */
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .content-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .content-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-white); /* Inverted background */
+            color: var(--primary-black); /* Inverted text color */
+            border-radius: 50%;
+            line-height: 60px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+        }
+
+        .content-item h3 {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-white); /* Inverted text color */
+            margin-bottom: 20px;
+        }
+
+        .content-item p {
+            color: rgba(255,255,255,0.8); /* Inverted text color */
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--primary-white); /* Inverted background */
+            text-align: center;
+        }
+
+        .price-card {
+            background: var(--primary-black); /* Inverted background */
+            max-width: 550px;
+            margin: 50px auto;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-heavy);
+            border: 3px solid var(--primary-white); /* Inverted border color */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+        }
+
+        .price-badge {
+            background: var(--coupon-yellow); /* Inverted background */
+            color: var(--primary-black); /* Inverted text color */
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--medium-gray);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-white); /* Inverted text color */
+            margin: 15px 0;
+        }
+
+        .installments {
+            color: rgba(255,255,255,0.8); /* Inverted text color */
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--dark-gray); /* Inverted border color */
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9); /* Inverted text color */
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+
+        .price-features li i {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+
+        .value-proposition {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--elegant-gray); /* Inverted background */
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .value-proposition h4 {
+            color: var(--primary-white); /* Inverted text color */
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .value-proposition p {
+            color: rgba(255,255,255,0.8); /* Inverted text color */
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--primary-black); /* Inverted background */
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--elegant-gray); /* Inverted background */
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--dark-gray); /* Inverted border color */
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-light);
+        }
+
+        .faq-question {
+            padding: 30px;
+            background: var(--elegant-gray); /* Inverted background */
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-white); /* Inverted text color */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--dark-gray); /* Inverted hover background */
+        }
+
+        .faq-question i {
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 30px;
+            color: rgba(255,255,255,0.8); /* Inverted text color */
+            line-height: 1.7;
+            display: none;
+            background: var(--dark-gray); /* Inverted background */
+        }
+
+        /* Author Section */
+        .author {
+            padding: 100px 0;
+            background: var(--primary-white); /* Inverted background */
+            color: var(--primary-black); /* Inverted text color */
+        }
+
+        .author-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .author-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            font-size: 4rem;
+            font-weight: 700;
+            border: 5px solid var(--primary-black); /* Inverted border color */
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .author-info h3 {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-black); /* Inverted text color */
+        }
+
+        .author-info .title {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .author-info p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--text-secondary); /* Inverted text color */
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            padding: 80px 0;
+            background: var(--primary-black); /* Inverted background */
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-black);
+            padding: 25px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .guarantee-text {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8); /* Inverted text color */
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: var(--primary-white); /* Inverted background */
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Inter', sans-serif; /* Unified font */
+            font-size: 2.8rem;
+            color: var(--primary-black); /* Inverted text color */
+            margin-bottom: 40px;
+        }
+
+        .final-cta-content {
+            background: var(--light-gray); /* Inverted background */
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-color); /* Inverted border color */
+        }
+
+        .benefits-checklist {
+            list-style: none;
+            text-align: left;
+            color: var(--text-secondary); /* Inverted text color */
+            margin: 30px 0;
+        }
+
+        .benefits-checklist li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .benefits-checklist li i {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-black);
+            color: var(--primary-white);
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .footer p {
+            margin-bottom: 15px;
+        }
+
+        .footer .tagline {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .problems-grid,
+            .benefits-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .author-photo {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                font-size: 3rem;
+            }
+            
+            .features-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+
+            .language-flags {
+                gap: 15px;
+            }
+
+            .flag-button {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .current-price {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hidden content for language switching */
+        .content-pt {
+            display: none;
+        }
+
+        .content-en {
+            display: none;
+        }
+
+        html[lang="pt-BR"] .content-pt {
+            display: block;
+        }
+
+        html[lang="en"] .content-en {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Blinking Promotional Header -->
+    <div class="promo-banner">
+        <span class="content-pt">🔥 OFERTA EXCLUSIVA: Desvende a Martech e contrate agências com confiança! CUPOM LANÇAMENTO</span>
+        <span class="content-en">🔥 EXCLUSIVE OFFER: Master Martech and hire agencies with confidence! LAUNCH COUPON</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo">Scale With Martech</a>
+            <div class="language-flags">
+                <button class="flag-button active" id="flag-pt" onclick="switchLanguage('pt-BR')">
+                    <div class="flag-icon flag-br"></div>
+                    <span>Português</span>
+                </button>
+                <button class="flag-button" id="flag-en" onclick="switchLanguage('en')">
+                    <div class="flag-icon flag-us"></div>
+                    <span>English</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="content-pt">E-book Introdução à Martech</h1>
+            <h1 class="content-en">E-book Introduction to Martech</h1>
+            
+            <p class="subtitle content-pt">
+                Empreendedor, você quer entender a estratégia de dados do marketing digital para contratar uma agência de tráfego pago com segurança e inteligência? Este e-book é para você!
+            </p>
+            <p class="subtitle content-en">
+                Entrepreneur, do you want to understand digital marketing data strategy to confidently and intelligently hire a paid traffic agency? This e-book is for you!
+            </p>
+            
+            <div class="ebook-preview">
+                <div class="ebook-cover">
+                    <span class="content-pt">INTRODUÇÃO<br>À<br>MARTECH</span>
+                    <span class="content-en">INTRODUCTION<br>TO<br>MARTECH</span>
+                </div>
+            </div>
+
+            <a href="#pricing" class="cta-primary content-pt">Quero Entender Martech Agora!</a>
+            <a href="#pricing" class="cta-primary content-en">I Want to Understand Martech Now!</a>
+
+            <div class="features-list">
+                <div class="feature-item content-pt">
+                    <i class="fas fa-check-circle"></i>
+                    Linguagem Simples
+                </div>
+                <div class="feature-item content-pt">
+                    <i class="fas fa-check-circle"></i>
+                    Foco em Resultados
+                </div>
+                <div class="feature-item content-pt">
+                    <i class="fas fa-check-circle"></i>
+                    Evite Gastos Desnecessários
+                </div>
+                <div class="feature-item content-en">
+                    <i class="fas fa-check-circle"></i>
+                    Simple Language
+                </div>
+                <div class="feature-item content-en">
+                    <i class="fas fa-check-circle"></i>
+                    Results-Focused
+                </div>
+                <div class="feature-item content-en">
+                    <i class="fas fa-check-circle"></i>
+                    Avoid Unnecessary Spending
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems">
+        <div class="container">
+            <h2 class="section-title content-pt">Você se Reconhece em Alguma Dessas Situações?</h2>
+            <h2 class="section-title content-en">Do You Recognize Yourself in Any of These Situations?</h2>
+            
+            <div class="problems-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="content-pt">Confuso com o "Marketing Digital"?</h3>
+                    <h3 class="content-en">Confused by "Digital Marketing"?</h3>
+                    <p class="content-pt">Você sabe que precisa de marketing digital, mas os termos técnicos e as promessas mirabolantes te deixam perdido.</p>
+                    <p class="content-en">You know you need digital marketing, but technical jargon and over-the-top promises leave you feeling lost.</p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="content-pt">Medo de Contratar a Agência Errada?</h3>
+                    <h3 class="content-en">Afraid to Hire the Wrong Agency?</h3>
+                    <p class="content-pt">Quer investir em tráfego pago, mas tem receio de contratar uma agência que não entregue resultados ou que te enrole com jargões.</p>
+                    <p class="content-en">You want to invest in paid traffic but fear hiring an agency that won't deliver results or will confuse you with industry jargon.</p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="content-pt">Não Entende os Relatórios da Agência?</h3>
+                    <h3 class="content-en">Don't Understand Agency Reports?</h3>
+                    <p class="content-pt">Sua agência te envia relatórios cheios de números e gráficos, mas você não consegue traduzir isso em decisões estratégicas para o seu negócio.</p>
+                    <p class="content-en">Your agency sends you reports packed with numbers and charts, but you can't translate them into strategic business decisions.</p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="content-pt">Investimento em Tráfego Pago sem Retorno?</h3>
+                    <h3 class="content-en">Paid Traffic Investment Without Returns?</h3>
+                    <p class="content-pt">Já gastou dinheiro com anúncios e não viu o retorno esperado, sentindo que está jogando dinheiro fora.</p>
+                    <p class="content-en">You've already spent money on ads without seeing expected returns, feeling like you're throwing money down the drain.</p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="content-pt">Dificuldade em se Comunicar com Especialistas?</h3>
+                    <h3 class="content-en">Struggling to Communicate with Specialists?</h3>
+                    <p class="content-pt">Sente que não consegue ter uma conversa produtiva com os profissionais de marketing porque não fala a mesma "língua"?</p>
+                    <p class="content-en">Feel like you can't have productive conversations with marketing professionals because you don't speak the same "language"?</p>
+                </div>
+
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="content-pt">Quer Maximizar o Potencial dos Seus Dados?</h3>
+                    <h3 class="content-en">Want to Maximize Your Data's Potential?</h3>
+                    <p class="content-pt">Sabe que dados são importantes, mas não sabe como usá-los para tomar decisões mais inteligentes e crescer seu negócio.</p>
+                    <p class="content-en">You know data is important, but don't know how to leverage it for smarter decision-making and business growth.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.8rem; color: var(--primary-white); margin-bottom: 25px;" class="content-pt">
+                    Se você se identificou com pelo menos 2 dessas situações...
+                </h3>
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.8rem; color: var(--primary-white); margin-bottom: 25px;" class="content-en">
+                    If you identified with at least 2 of these situations...
+                </h3>
+                <p style="font-size: 1.3rem; font-weight: 600; color: var(--accent-gold);" class="content-pt">
+                    Este e-book foi feito especialmente para você!
+                </p>
+                <p style="font-size: 1.3rem; font-weight: 600; color: var(--accent-gold);" class="content-en">
+                    This e-book was made especially for you!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title content-pt">A Solução: Martech Descomplicada para o Seu Negócio</h2>
+            <h2 class="section-title content-en">The Solution: Martech Simplified for Your Business</h2>
+            
+            <p class="solution-intro content-pt">
+                Imagine ter clareza sobre as ferramentas e estratégias de marketing digital, sabendo exatamente o que pedir e o que esperar de uma agência de tráfego pago...
+            </p>
+            <p class="solution-intro content-en">
+                Imagine having clarity about digital marketing tools and strategies, knowing exactly what to ask for and what to expect from a paid traffic agency...
+            </p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="content-pt">Clareza Estratégica</h3>
+                    <h3 class="content-en">Strategic Clarity</h3>
+                    <p class="content-pt">Compreenda o papel de cada ferramenta e como elas se encaixam na sua estratégia de marketing.</p>
+                    <p class="content-en">Understand the role of each tool and how they fit into your marketing strategy.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="content-pt">Economia Inteligente</h3>
+                    <h3 class="content-en">Smart Savings</h3>
+                    <p class="content-pt">Evite gastos desnecessários e invista seu dinheiro em tráfego pago com mais assertividade.</p>
+                    <p class="content-en">Avoid unnecessary expenses and invest your money in paid traffic more effectively.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="content-pt">Parceria Eficaz com Agências</h3>
+                    <h3 class="content-en">Effective Agency Partnerships</h3>
+                    <p class="content-pt">Saiba como avaliar, contratar e gerenciar agências de tráfego pago, garantindo alinhamento e resultados.</p>
+                    <p class="content-en">Learn how to evaluate, hire, and manage paid traffic agencies, ensuring alignment and results.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="content-pt">Resultados Otimizados</h3>
+                    <h3 class="content-en">Optimized Results</h3>
+                    <p class="content-pt">Use dados para otimizar suas campanhas e maximizar o retorno sobre o investimento (ROI).</p>
+                    <p class="content-en">Use data to optimize your campaigns and maximize return on investment (ROI).</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="content-pt">Segurança nas Decisões</h3>
+                    <h3 class="content-en">Confident Decision-Making</h3>
+                    <p class="content-pt">Tome decisões de marketing com confiança, baseadas em conhecimento sólido e não em intuição.</p>
+                    <p class="content-en">Make marketing decisions with confidence, based on solid knowledge rather than gut feeling.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="content-pt">Crescimento Sustentável</h3>
+                    <h3 class="content-en">Sustainable Growth</h3>
+                    <p class="content-pt">Construa uma base de marketing digital robusta para o crescimento contínuo do seu negócio.</p>
+                    <p class="content-en">Build a robust digital marketing foundation for continuous business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Preview Section -->
+    <section class="content-preview">
+        <div class="container">
+            <h2 class="section-title content-pt">O que Você Vai Aprender Neste E-book</h2>
+            <h2 class="section-title content-en">What You'll Learn in This E-book</h2>
+            
+            <div class="content-grid">
+                <div class="content-item fade-in">
+                    <div class="content-number">01</div>
+                    <h3 class="content-pt">Introdução: Desvendando o Martech para o Empreendedor Digital</h3>
+                    <h3 class="content-en">Introduction: Demystifying Martech for the Digital Entrepreneur</h3>
+                    <p class="content-pt">Por que Martech é crucial para o seu negócio e como este e-book vai te ajudar a navegar nesse universo.</p>
+                    <p class="content-en">Why Martech is crucial for your business and how this e-book will help you navigate this universe.</p>
+                </div>
+
+                <div class="content-item fade-in">
+                    <div class="content-number">02</div>
+                    <h3 class="content-pt">O Ecossistema Martech: As Camadas Fundamentais</h3>
+                    <h3 class="content-en">The Martech Ecosystem: Fundamental Layers</h3>
+                    <p class="content-pt">Conheça as principais ferramentas e categorias de Martech e como elas se organizam.</p>
+                    <p class="content-en">Discover the main Martech tools and categories and how they're organized.</p>
+                </div>
+
+                <div class="content-item fade-in">
+                    <div class="content-number">03</div>
+                    <h3 class="content-pt">O Circuito Completo: Como as Ferramentas Trabalham Juntas</h3>
+                    <h3 class="content-en">The Complete Circuit: How Tools Work Together</h3>
+                    <p class="content-pt">Entenda a interconexão entre as ferramentas e como elas formam um fluxo de trabalho eficiente.</p>
+                    <p class="content-en">Understand the interconnection between tools and how they form an efficient workflow.</p>
+                </div>
+
+                <div class="content-item fade-in">
+                    <div class="content-number">04</div>
+                    <h3 class="content-pt">Contratando uma Agência: O Papel do Empreendedor Digital</h3>
+                    <h3 class="content-en">Hiring an Agency: The Digital Entrepreneur's Role</h3>
+                    <p class="content-pt">Saiba o que perguntar, o que exigir e como garantir que sua agência de tráfego pago entregue o que você precisa.</p>
+                    <p class="content-en">Learn what to ask, what to demand, and how to ensure your paid traffic agency delivers what you need.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <div style="background: var(--elegant-gray); padding: 40px; border-radius: 20px; max-width: 700px; margin: 0 auto; border-left: 5px solid var(--accent-gold);">
+                    <h3 style="color: var(--primary-white); margin-bottom: 20px; font-family: 'Inter', sans-serif;" class="content-pt">
+                        <i class="fas fa-gift" style="color: var(--accent-gold); margin-right: 15px;"></i>
+                        Bônus Exclusivos
+                    </h3>
+                    <h3 style="color: var(--primary-white); margin-bottom: 20px; font-family: 'Inter', sans-serif;" class="content-en">
+                        <i class="fas fa-gift" style="color: var(--accent-gold); margin-right: 15px;"></i>
+                        Exclusive Bonuses
+                    </h3>
+                    <p class="content-pt">Checklists para avaliação de agências, glossário de termos Martech e dicas para otimizar seu investimento.</p>
+                    <p class="content-en">Agency evaluation checklists, Martech terms glossary, and tips to optimize your investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title content-pt">Invista no Seu Conhecimento e Multiplique Seus Resultados</h2>
+            <h2 class="section-title content-en">Invest in Your Knowledge and Multiply Your Results</h2>
+            
+            <div class="price-card">
+                <div class="price-badge content-pt">OFERTA POR TEMPO LIMITADO - CUPOM LANÇAMENTO</div>
+                <div class="price-badge content-en">LIMITED-TIME OFFER - LAUNCH COUPON</div>
+                
+                <div class="original-price content-pt">De R$ 87,90</div>
+                <div class="original-price content-en">From $57.00</div>
+                
+                <div class="current-price content-pt">R$ 43,95</div>
+                <div class="current-price content-en">$27.00</div>
+                
+                <p class="installments content-pt">em até 4 vezes</p>
+                <p class="installments content-en">or 4 easy payments</p>
+
+                <ul class="price-features">
+                    <li class="content-pt"><i class="fas fa-check"></i> E-book completo "Introdução à Martech"</li>
+                    <li class="content-pt"><i class="fas fa-check"></i> Checklist para Contratar Agências de Tráfego Pago</li>
+                    <li class="content-pt"><i class="fas fa-check"></i> Glossário de Termos Essenciais de Martech</li>
+                    <li class="content-pt"><i class="fas fa-check"></i> Dicas para Otimizar seu Investimento em Marketing Digital</li>
+                    
+                    <li class="content-en"><i class="fas fa-check"></i> Complete E-book "Introduction to Martech"</li>
+                    <li class="content-en"><i class="fas fa-check"></i> Checklist for Hiring Paid Traffic Agencies</li>
+                    <li class="content-en"><i class="fas fa-check"></i> Essential Martech Terms Glossary</li>
+                    <li class="content-en"><i class="fas fa-check"></i> Tips to Optimize Your Digital Marketing Investment</li>
+                </ul>
+
+                <a href="#" class="cta-primary content-pt" style="display: block; margin: 40px 0;">
+                    Quero Desvendar a Martech Agora por R$ 43,95!
+                </a>
+                <a href="#" class="cta-primary content-en" style="display: block; margin: 40px 0;">
+                    I Want to Master Martech Now for $27!
+                </a>
+
+                <div style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 30px;">
+                    <span class="content-pt"><i class="fas fa-lock"></i> Pagamento 100% seguro via Hotmart<br></span>
+                    <span class="content-pt"><i class="fas fa-mobile-alt"></i> Acesso imediato após a compra</span>
+                    <span class="content-en"><i class="fas fa-lock"></i> 100% secure payment via Hotmart<br></span>
+                    <span class="content-en"><i class="fas fa-mobile-alt"></i> Immediate access after purchase</span>
+                </div>
+
+                <div class="value-proposition">
+                    <h4 class="content-pt">💡 Pense assim:</h4>
+                    <h4 class="content-en">💡 Think about it:</h4>
+                    <p class="content-pt">
+                        <strong>R$ 43,95</strong> é menos que um almoço fora.<br>
+                        Mas este conhecimento pode te economizar <strong>milhares de reais</strong> em campanhas mal executadas e te dar o controle sobre o futuro do seu negócio.
+                    </p>
+                    <p class="content-en">
+                        <strong>$27</strong> is less than a dinner out, or even a few cups of coffee.<br>
+                        But this knowledge can save you <strong>thousands of dollars</strong> in poorly executed campaigns and give you control over your business's future.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-badge">
+                <span class="content-pt"><i class="fas fa-shield-alt"></i> Garantia de 7 Dias</span>
+                <span class="content-en"><i class="fas fa-shield-alt"></i> 7-Day Guarantee</span>
+            </div>
+            <p class="guarantee-text content-pt">
+                Se por qualquer motivo você não ficar satisfeito com o conteúdo, devolvemos 100% do seu dinheiro em até 7 dias. Sem perguntas, sem burocracia.
+            </p>
+            <p class="guarantee-text content-en">
+                If for any reason you're not satisfied with the content, we'll refund 100% of your money within 7 days. No questions asked, no hassle.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title content-pt">Perguntas Frequentes</h2>
+            <h2 class="section-title content-en">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="content-pt">Este e-book é para quem já entende de marketing digital?</span>
+                        <span class="content-en">Is this e-book for those who already understand digital marketing?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="content-pt">Não! Este e-book é ideal para empreendedores que estão começando a explorar o marketing digital e precisam de uma base sólida para tomar decisões inteligentes, especialmente ao lidar com agências.</span>
+                        <span class="content-en">No! This e-book is ideal for entrepreneurs who are starting to explore digital marketing and need a solid foundation to make smart decisions, especially when dealing with agencies.</span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="content-pt">O que é Martech e por que é importante para meu negócio?</span>
+                        <span class="content-en">What is Martech and why is it important for my business?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="content-pt">Martech é a junção de Marketing e Tecnologia. É o uso de ferramentas e plataformas para otimizar suas estratégias de marketing. É crucial para empreendedores que querem escalar seus negócios e ter controle sobre seus dados e resultados.</span>
+                        <span class="content-en">Martech is the combination of Marketing and Technology. It's the use of tools and platforms to optimize your marketing strategies. It's crucial for entrepreneurs who want to scale their businesses and have control over their data and results.</span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="content-pt">Quanto tempo levo para ler e aplicar o conteúdo?</span>
+                        <span class="content-en">How long does it take to read and apply the content?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="content-pt">O e-book foi desenvolvido para ser direto e prático. Você pode lê-lo em poucas horas e começar a aplicar os conceitos imediatamente para ter conversas mais produtivas com sua agência ou para planejar suas próximas ações de marketing.</span>
+                        <span class="content-en">The e-book was developed to be direct and practical. You can read it in a few hours and start applying the concepts immediately to have more productive conversations with your agency or to plan your next marketing actions.</span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="content-pt">Posso usar este conhecimento para gerenciar minhas próprias campanhas?</span>
+                        <span class="content-en">Can I use this knowledge to manage my own campaigns?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="content-pt">Sim! Embora o foco seja te preparar para contratar e gerenciar agências, o conhecimento adquirido te dará uma base excelente para entender e até mesmo iniciar suas próprias campanhas de marketing digital, se desejar.</span>
+                        <span class="content-en">Yes! Although the focus is to prepare you to hire and manage agencies, the acquired knowledge will give you an excellent foundation to understand and even start your own digital marketing campaigns, if you wish.</span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="content-pt">Este e-book aborda ferramentas específicas?</span>
+                        <span class="content-en">Does this e-book cover specific tools?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="content-pt">Sim, o e-book apresenta o ecossistema Martech, explicando as categorias de ferramentas e como elas se integram, sem focar em tutoriais de uso de ferramentas específicas, mas sim na visão estratégica.</span>
+                        <span class="content-en">Yes, the e-book presents the Martech ecosystem, explaining the categories of tools and how they integrate, without focusing on tutorials for specific tool usage, but rather on the strategic vision.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author">
+        <div class="container">
+            <h2 class="section-title content-pt">Sobre a Autora</h2>
+            <h2 class="section-title content-en">About the Author</h2>
+            
+            <div class="author-content">
+                <div class="author-photo">
+                    JW
+                </div>
+                
+                <div class="author-info">
+                    <h3>Jacqueline Wanderley</h3>
+                    <div class="title content-pt">Especialista em Martech e Digital Analytics</div>
+                    <div class="title content-en">Martech and Digital Analytics Specialist</div>
+                    
+                    <p class="content-pt">
+                        <strong>Quase 20 anos de experiência no mercado financeiro</strong> e 5 anos liderando projetos de infraestrutura de digital analytics e martech. Jacqueline implementou do zero uma infraestrutura completa de martech em uma grande instituição financeira, estabelecendo as bases para uma operação de marketing orientada por dados.
+                    </p>
+                    <p class="content-en">
+                        <strong>Nearly 20 years of experience in the financial market</strong> and 5 years leading digital analytics and martech infrastructure projects. Jacqueline implemented a complete martech infrastructure from scratch at a major financial institution, laying the groundwork for a data-driven marketing operation.
+                    </p>
+                    
+                    <div class="expertise-section">
+                        <h4 class="content-pt">💼 Expertise</h4>
+                        <h4 class="content-en">💼 Expertise</h4>
+                        <p class="content-pt">Especialista em Google Ads. Integração de GCP, Firebase, Google Analytics e arquiteturas de dados abrangentes.</p>
+                        <p class="content-en">Google Ads Specialist. Integration of GCP, Firebase, Google Analytics, and comprehensive data architectures.</p>
+                        
+                        <h4 class="content-pt">🎯 Resultados</h4>
+                        <h4 class="content-en">🎯 Results</h4>
+                        <p class="content-pt">Estratégias de hiperpersonalização e transformação digital completa de operações.</p>
+                        <p class="content-en">Hyper-personalization strategies and complete digital transformation of operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="content-pt">Pare de Perder Dinheiro</h2>
+            <h2 class="content-en">Don't Leave Money on the Table Anymore</h2>
+            
+            <p style="font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 50px; max-width: 900px; margin-left: auto; margin-right: auto;" class="content-pt">
+                Cada dia que você adia entender Martech é dinheiro que você pode estar perdendo em campanhas ineficientes ou agências que não entregam o que prometem.
+            </p>
+            <p style="font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 50px; max-width: 900px; margin-left: auto; margin-right: auto;" class="content-en">
+                Every day you delay understanding Martech is money you could be losing on inefficient campaigns or agencies that don't deliver on their promises.
+            </p>
+
+            <div class="final-cta-content">
+                <h3 style="color: var(--primary-black); margin-bottom: 30px; font-family: 'Inter', sans-serif;" class="content-pt">🚀 Imagine daqui a 1 semana:</h3>
+                <h3 style="color: var(--primary-black); margin-bottom: 30px; font-family: 'Inter', sans-serif;" class="content-en">🚀 Imagine 1 week from now:</h3>
+                
+                <ul class="benefits-checklist content-pt">
+                    <li><i class="fas fa-check"></i> Conversas mais inteligentes com sua agência</li>
+                    <li><i class="fas fa-check"></i> Entendimento claro do seu investimento em tráfego pago</li>
+                    <li><i class="fas fa-check"></i> Capacidade de analisar relatórios e tomar decisões</li>
+                    <li><i class="fas fa-check"></i> Otimização dos seus resultados de marketing</li>
+                    <li><i class="fas fa-check"></i> Mais segurança e controle sobre o futuro do seu negócio</li>
+                </ul>
+                
+                <ul class="benefits-checklist content-en">
+                    <li><i class="fas fa-check"></i> Smarter conversations with your agency</li>
+                    <li><i class="fas fa-check"></i> Clear understanding of your paid traffic investment</li>
+                    <li><i class="fas fa-check"></i> Ability to analyze reports and make decisions</li>
+                    <li><i class="fas fa-check"></i> Optimization of your marketing results</li>
+                    <li><i class="fas fa-check"></i> More security and control over your business's future</li>
+                </ul>
+            </div>
+
+            <a href="#pricing" class="cta-primary content-pt" style="margin-top: 50px; font-size: 1.3rem;">
+                SIM! Quero Desvendar a Martech e Otimizar Meus Resultados!
+            </a>
+            <a href="#pricing" class="cta-primary content-en" style="display: block; margin: 40px 0;">
+                YES! I Want to Master Martech and Optimize My Results!
+            </a>
+
+            <div style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 30px;">
+                <span class="content-pt">De R$ 87,90<br></span>
+                <span class="content-en">From $57.00<br></span>
+                <strong style="font-size: 1.6rem; color: var(--primary-black);" class="content-pt">Por apenas R$ 43,95 em até 4 vezes</strong>
+                <strong style="font-size: 1.6rem; color: var(--primary-black);" class="content-en">For only $27.00 or 4 easy payments</strong><br>
+                <span class="content-pt">🔒 Pagamento seguro • 📱 Acesso imediato • 🛡️ Garantia de 7 dias</span>
+                <span class="content-en">🔒 Secure payment • 📱 Immediate access • 🛡️ 7-day guarantee</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Scale With Martech. <span class="content-pt">Todos os direitos reservados.</span><span class="content-en">All rights reserved.</span></p>
+            <p class="tagline content-pt">
+                Educação profissional em marketing digital para empreendedores e empresários.
+            </p>
+            <p class="tagline content-en">
+                Professional digital marketing education for entrepreneurs and business owners.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        function switchLanguage(lang) {
+            const htmlRoot = document.getElementById('html-root');
+            const flagPt = document.getElementById('flag-pt');
+            const flagEn = document.getElementById('flag-en');
+            
+            // Update HTML lang attribute
+            htmlRoot.lang = lang;
+            
+            // Update flag active states
+            flagPt.classList.toggle('active', lang === 'pt-BR');
+            flagEn.classList.toggle('active', lang === 'en');
+            
+            // Update meta tags
+            const titles = {
+                'pt-BR': 'E-book Introdução à Martech: Desvende a Estratégia de Dados para Contratar Agências de Tráfego Pago',
+                'en': 'E-book Introduction to Martech: Master Data Strategy for Hiring Paid Traffic Agencies'
+            };
+            
+            const descriptions = {
+                'pt-BR': 'Aprenda estratégia de dados do marketing digital para contratar agências de tráfego pago com confiança. E-book completo com insights práticos para empreendedores.',
+                'en': 'Learn digital marketing data strategy to confidently hire paid traffic agencies. Complete e-book with practical insights for entrepreneurs and business owners.'
+            };
+            
+            document.getElementById('page-title').textContent = titles[lang];
+            document.getElementById('page-description').content = descriptions[lang];
+            document.getElementById('og-title').content = titles[lang];
+            document.getElementById('og-description').content = descriptions[lang];
+            document.getElementById('twitter-title').content = titles[lang];
+            document.getElementById('twitter-description').content = descriptions[lang];
+            
+            // Store language preference
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'pt-BR';
+            switchLanguage(savedLang);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    if (ans !== answer) {
+                        ans.style.display = 'none';
+                        ans.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current answer
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Pixel tracking (placeholder for actual implementation)
+        function trackEvent(eventName, properties = {}) {
+            // Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', eventName, properties);
+            }
+            
+            // Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, properties);
+            }
+            
+            // Add other tracking pixels as needed
+            console.log('Event tracked:', eventName, properties);
+        }
+
+        // Track page view
+        trackEvent('PageView');
+
+        // Track CTA clicks
+        document.querySelectorAll('.cta-primary').forEach(cta => {
+            cta.addEventListener('click', function() {
+                trackEvent('CTAClick', {
+                    button_text: this.textContent.trim(),
+                    section: this.closest('section').className
+                });
+            });
+        });
+
+        // Track language switches
+        function trackLanguageSwitch(lang) {
+            trackEvent('LanguageSwitch', {
+                language: lang,
+                previous_language: document.getElementById('html-root').lang
+            });
+        }
+
+        // Enhanced language switching with tracking
+        const originalSwitchLanguage = switchLanguage;
+        switchLanguage = function(lang) {
+            trackLanguageSwitch(lang);
+            originalSwitchLanguage(lang);
+        };
+    </script>
+
+    <!-- Pixel tracking scripts (add your actual pixel codes here) -->
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);
+        t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GA_ID');
+    </script>
+</body>
+</html>
+
